@@ -1,10 +1,9 @@
 #include<stdio.h>
-int mainn()
+int main()
 {
     int x, i = 2, y = 0;
     printf("Enter a number : ");
     scanf("%d", &x);
-
     while (i < x)
     {
         if (x % i == 0)
@@ -13,7 +12,7 @@ int mainn()
         }
         i++;
     }
-    if (y>0)
+    if (y > 0)
     {
         printf("%d is not a prime number", x);
     }
