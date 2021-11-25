@@ -104,7 +104,7 @@ int setMode()
 {
 	rHnd = GetStdHandle(STD_INPUT_HANDLE);
 	fdwMode = ENABLE_EXTENDED_FLAGS | ENABLE_WINDOW_INPUT |
-		ENABLE_MOUSE_INPUT;
+		ENABLE_MOUSE_INPUT | ENABLE_INSERT_MODE | ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT;
 	SetConsoleMode(rHnd, fdwMode);
 	return 0;
 }
@@ -376,7 +376,7 @@ void bullet_item2_fly()
 	{
 		if (firestate_item21[i] == 1)
 		{
-			if ((bullet_item21[i].Y < 0 || bullet_item21[i].X < 2) && (bullet_item21[i].X != 1))
+			if ((bullet_item21[i].Y < 0 || bullet_item21[i].X < 3))// && (bullet_item21[i].X != 1))
 			{
 				firestate_item21[i] = 0;
 			}
@@ -405,7 +405,7 @@ void bullet_item2_fly()
 	{
 		if (firestate_item23[i] == 1)
 		{
-			if ((bullet_item23[i].Y < 0 || bullet_item23[i].X > 87) && (bullet_item21[i].X != 88))
+			if ((bullet_item23[i].Y < 0 || bullet_item23[i].X > 86))// && (bullet_item21[i].X != 88))
 			{
 				firestate_item23[i] = 0;
 			}
@@ -420,7 +420,7 @@ void bullet_item2_fly()
 	{
 		if (firestate_item24[i] == 1)
 		{
-			if ((bullet_item24[i].Y < 0 || bullet_item24[i].X < 2) && (bullet_item21[i].X != 1))
+			if ((bullet_item24[i].Y < 0 || bullet_item24[i].X < 3))// && (bullet_item21[i].X != 1))
 			{
 				firestate_item24[i] = 0;
 			}
@@ -435,7 +435,7 @@ void bullet_item2_fly()
 	{
 		if (firestate_item25[i] == 1)
 		{
-			if ((bullet_item25[i].Y < 0 || bullet_item25[i].X > 87) && (bullet_item21[i].X != 88))
+			if ((bullet_item25[i].Y < 0 || bullet_item25[i].X > 86))// && (bullet_item21[i].X != 88))
 			{
 				firestate_item25[i] = 0;
 			}
@@ -2018,7 +2018,7 @@ void fill_item_to_buffer()
 		if (item1[i].X != 0)
 		{
 			consoleBuffer[item1[i].X + screen_x * item1[i].Y].Char.AsciiChar = '?';
-			consoleBuffer[item1[i].X + screen_x * item1[i].Y].Attributes = 9;
+			consoleBuffer[item1[i].X + screen_x * item1[i].Y].Attributes = 25;
 		}
 	}
 
@@ -2028,7 +2028,7 @@ void fill_item_to_buffer()
 		if (item2[i].X != 0)
 		{
 			consoleBuffer[item2[i].X + screen_x * item2[i].Y].Char.AsciiChar = '?';
-			consoleBuffer[item2[i].X + screen_x * item2[i].Y].Attributes = 10;
+			consoleBuffer[item2[i].X + screen_x * item2[i].Y].Attributes = 18;
 		}
 	}
 
@@ -2057,7 +2057,7 @@ int main()
 	setMode();
 	
 	//Reset high score
-/*	FILE* fp;
+	/*FILE* fp;
 	fp = fopen("Top5Player.txt", "w");
 	struct player {
 		char name[50];
@@ -2073,7 +2073,7 @@ int main()
 		fprintf(fp, "%d\n", p[i].score);
 	};
 	fclose(fp);
-*/
+	*/
 
 	while (play)
 	{
